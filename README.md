@@ -1,93 +1,93 @@
 # Hey Snowy ❄️
 
-> **Crowdsourced snow conditions reporting for backcountry skiers — fully voice-driven, anonymous, and free.**
+> **Observations des conditions de neige en ski de randonnée — vocal, anonyme et gratuit.**
 
 ![Hey Snowy Logo](assets/logo_full.png)
 
 ---
 
-## 🎯 What is Hey Snowy?
+## 🎯 C'est quoi Hey Snowy ?
 
-Hey Snowy is an open-source mobile app (Android / iOS) that lets backcountry skiers report snow conditions **hands-free**, while moving — no need to take off gloves or stop skiing.
+Hey Snowy est une application mobile open source (Android / iOS) qui permet aux randonneurs à ski de reporter les conditions de neige **mains libres**, en mouvement — sans sortir le téléphone de la poche, sans enlever les gants.
 
-Just say **"Hey Snow"** → speak naturally about the snow → say **"Bye Snow"** (or wait 15 seconds). At the end of your tour, the app transcribes your voice notes, extracts structured snow data using AI, and shares it anonymously with the community.
+Il suffit de dire **"Hey Snowy"** → parler naturellement des conditions → dire **"Bye Bye Snowy"** (ou attendre 15 secondes). En fin de sortie, l'app transcrit les notes vocales, extrait les données structurées grâce à l'IA, et les partage anonymement avec la communauté.
 
-The result: a **crowdsourced, real-time, geolocated snow conditions database** — built by skiers, for skiers.
-
----
-
-## ✨ Features
-
-- 🎙️ **Hands-free voice logging** — wake word detection (Porcupine), no screen interaction needed
-- 📍 **GPS snap** — each observation is automatically geolocated and timestamped
-- 🤖 **AI transcription + extraction** — Whisper (Groq) transcribes your voice, Llama 3 extracts structured data (snow type, depth, stability, aspect)
-- 🗺️ **Community map** — see all recent observations on an OpenStreetMap map
-- ✏️ **Manual edit** — correct AI extraction before or after upload
-- 🔒 **Anonymous by design** — no user account, no personal data
-- 📴 **Offline-first** — records locally, syncs when back in range
-- 💸 **100% free** — Groq free tier, Supabase free tier, OpenStreetMap
+Le résultat : une **base de données communautaire, temps réel et géolocalisée des conditions de neige** — construite par les skieurs, pour les skieurs.
 
 ---
 
-## 🏔️ Snow categories
+## ✨ Fonctionnalités
 
-| Category | Description |
-|----------|-------------|
-| `poudre` | Fresh light powder |
-| `moquette` | Spring transformed snow, pleasant |
-| `transfo` | Recently softened after freeze/thaw |
-| `béton` | Hard frozen snow, icy |
-| `croûte` | Non-supporting breakable crust |
-| `ventée` | Wind-packed snow, potential slab |
-| `humide` | Wet heavy spring snow |
-| `purge` | Already naturally purged |
-| `lourde` | Heavy powder, lost lightness |
-| `autre` | Other |
+- 🎙️ **Enregistrement vocal mains libres** — détection de mot-clé (Porcupine), aucune interaction avec l'écran
+- 📍 **Snap GPS automatique** — chaque observation est géolocalisée et horodatée
+- 🤖 **Transcription + extraction IA** — Whisper (Groq) transcrit la voix, Llama 3 extrait les données structurées (type de neige, épaisseur, stabilité, orientation)
+- 🗺️ **Carte communautaire** — visualise toutes les observations récentes sur OpenStreetMap
+- ✏️ **Édition manuelle** — corrige l'extraction IA avant ou après l'upload
+- 🔒 **Anonyme par design** — pas de compte, pas de données personnelles
+- 📴 **Offline-first** — enregistrement local, synchronisation au retour du réseau
+- 💸 **100% gratuit** — Groq free tier, Supabase free tier, OpenStreetMap
 
 ---
 
-## 🛠️ Tech stack
+## 🏔️ Catégories de neige
 
-| Layer | Technology |
-|-------|-----------|
-| Mobile framework | Flutter (iOS + Android) |
-| Wake word | Porcupine (Picovoice) |
-| Audio recording | flutter_sound |
+| Catégorie | Description |
+|-----------|-------------|
+| `poudre` | Neige fraîche légère, floconneuse |
+| `moquette` | Neige de printemps transformée, agréable |
+| `transfo` | Neige qui vient de décailler |
+| `béton` | Neige regelée dure, croûte portante |
+| `croûte` | Croûte de regel non portante |
+| `ventée` | Neige soufflée, tassée par le vent, plaque potentielle |
+| `humide` | Neige mouillée, lourde, printanière |
+| `purge` | Neige ayant déjà purgé naturellement |
+| `lourde` | Poudreuse ayant pris l'humidité |
+| `autre` | Autre |
+
+---
+
+## 🛠️ Stack technique
+
+| Couche | Technologie |
+|--------|------------|
+| Framework mobile | Flutter (iOS + Android) |
+| Mot-clé vocal | Porcupine (Picovoice) |
+| Enregistrement audio | flutter_sound |
 | GPS | geolocator |
 | Transcription | Whisper via Groq API (free tier) |
-| AI extraction | Llama 3.3 70B via Groq API (free tier) |
-| Local storage | SQLite (sqflite) |
-| Community backend | Supabase (free tier) |
-| Map | flutter_map + OpenStreetMap |
+| Extraction IA | Llama 3.3 70B via Groq API (free tier) |
+| Stockage local | SQLite (sqflite) |
+| Backend communautaire | Supabase (free tier) |
+| Carte | flutter_map + OpenStreetMap |
 
 ---
 
-## 🚀 Getting started
+## 🚀 Démarrage rapide
 
-### Prerequisites
+### Prérequis
 
 - Flutter SDK 3.x
-- Android Studio (for Android build)
-- Free API keys (see below)
+- Android Studio (pour le build Android)
+- Clés API gratuites (voir ci-dessous)
 
-### 1. Clone the repo
+### 1. Cloner le repo
 
 ```bash
 git clone https://github.com/Tinevagio/hey-snowy.git
 cd hey-snowy
 ```
 
-### 2. Get API keys (all free)
+### 2. Obtenir les clés API (toutes gratuites)
 
-| Service | Purpose | Link |
-|---------|---------|------|
-| **Groq** | Transcription (Whisper) + AI extraction (Llama) | [console.groq.com](https://console.groq.com) |
-| **Supabase** | Community database | [supabase.com](https://supabase.com) |
-| **Picovoice** | Wake word detection | [console.picovoice.ai](https://console.picovoice.ai) |
+| Service | Usage | Lien |
+|---------|-------|------|
+| **Groq** | Transcription (Whisper) + extraction IA (Llama) | [console.groq.com](https://console.groq.com) |
+| **Supabase** | Base de données communautaire | [supabase.com](https://supabase.com) |
+| **Picovoice** | Détection du mot-clé vocal | [console.picovoice.ai](https://console.picovoice.ai) |
 
-### 3. Configure API keys
+### 3. Configurer les clés API
 
-Copy the template files and fill in your keys:
+Copie les fichiers template et remplis tes clés :
 
 ```bash
 cp lib/services/ai_service.template.dart lib/services/ai_service.dart
@@ -96,9 +96,9 @@ cp lib/services/supabase_service.template.dart lib/services/supabase_service.dar
 cp lib/services/wake_word_service.template.dart lib/services/wake_word_service.dart
 ```
 
-### 4. Set up Supabase
+### 4. Configurer Supabase
 
-Run this SQL in your Supabase SQL editor:
+Exécute ce SQL dans l'éditeur SQL de ton projet Supabase :
 
 ```sql
 create table observations (
@@ -122,9 +122,9 @@ create policy "Public update" on observations for update using (true);
 create policy "Public delete" on observations for delete using (true);
 ```
 
-### 5. Add wake word files
+### 5. Ajouter les fichiers wake word
 
-Generate your wake word `.ppn` files on [console.picovoice.ai](https://console.picovoice.ai) and place them in `assets/`:
+Génère tes fichiers `.ppn` sur [console.picovoice.ai](https://console.picovoice.ai) et place-les dans `assets/` :
 
 ```
 assets/
@@ -132,7 +132,7 @@ assets/
   bye_snow_android.ppn
 ```
 
-### 6. Run
+### 6. Lancer l'app
 
 ```bash
 flutter pub get
@@ -141,64 +141,64 @@ flutter run
 
 ---
 
-## 📱 How to use
+## 📱 Comment utiliser
 
-1. **Start a tour** — tap "Démarrer sortie"
-2. **Record an observation** — say your wake word (e.g. "Hey Snow"), speak naturally about the snow conditions, say your stop word or wait 15 seconds
-3. **End the tour** — tap "Terminer" to trigger batch processing (transcription + AI extraction + community upload)
-4. **Review** — check your observations in the list view or on the map
-5. **Edit** — tap any observation to correct AI extraction if needed
-
----
-
-## 🌍 Community data
-
-All observations are:
-- **Anonymous** — no user ID, no account required
-- **Public** — visible to all users on the community map
-- **Opt-out** — toggle "Partager avec la communauté" before ending your tour
+1. **Démarrer une sortie** — appuie sur "Démarrer sortie"
+2. **Enregistrer une observation** — dis ton mot-clé (ex. "Hey Snow"), parle naturellement des conditions, dis ton mot d'arrêt ou attends 15 secondes
+3. **Terminer la sortie** — appuie sur "Terminer" pour lancer le traitement (transcription + extraction IA + upload communautaire)
+4. **Consulter** — visualise tes observations dans la liste ou sur la carte
+5. **Corriger** — appuie sur une observation pour corriger l'extraction IA si besoin
 
 ---
 
-## 🤝 Contributing
+## 🌍 Données communautaires
 
-Contributions are very welcome! Here are some ideas:
+Toutes les observations sont :
+- **Anonymes** — pas d'identifiant utilisateur, pas de compte requis
+- **Publiques** — visibles par tous les utilisateurs sur la carte communautaire
+- **Opt-out** — désactive "Partager avec la communauté" avant de terminer la sortie
 
-- 🌐 Add more languages (Italian, German, Spanish...)
-- 📊 Add avalanche bulletin integration
-- 🗺️ Add GPX track recording
-- 🤖 Improve the AI extraction prompt
-- 📱 iOS build and testing
+---
 
-Please open an issue before submitting a PR so we can discuss the approach.
+## 🤝 Contribuer
+
+Les contributions sont les bienvenues ! Quelques idées :
+
+- 🌐 Ajouter d'autres langues (italien, allemand, espagnol...)
+- 📊 Intégrer les bulletins avalanche
+- 🗺️ Enregistrement de la trace GPX
+- 🤖 Améliorer le prompt d'extraction IA
+- 📱 Build et tests iOS
+
+Ouvre une issue avant de soumettre une PR pour qu'on puisse discuter de l'approche.
 
 ---
 
 ## 🔮 Roadmap
 
-- [ ] iOS support
-- [ ] GPX track export
-- [ ] Avalanche bulletin overlay on map
-- [ ] Weather data integration
-- [ ] ML model trained on community data
-- [ ] Web dashboard for data visualization
+- [ ] Support iOS
+- [ ] Export trace GPX
+- [ ] Intégration bulletins avalanche sur la carte
+- [ ] Intégration données météo
+- [ ] Modèle ML entraîné sur les données communautaires
+- [ ] Dashboard web de visualisation des données
 
 ---
 
-## 📄 License
+## 📄 Licence
 
-MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-## 🙏 Acknowledgements
-
-- [Picovoice Porcupine](https://picovoice.ai/) for offline wake word detection
-- [Groq](https://groq.com/) for blazing fast free AI inference
-- [Supabase](https://supabase.com/) for the free community backend
-- [OpenStreetMap](https://www.openstreetmap.org/) contributors for map data
-- [flutter_map](https://pub.dev/packages/flutter_map) for the Flutter map widget
+Licence MIT — voir [LICENSE](LICENSE) pour les détails.
 
 ---
 
-*Built with ❄️ by backcountry skiers, for backcountry skiers.*
+## 🙏 Remerciements
+
+- [Picovoice Porcupine](https://picovoice.ai/) pour la détection de mot-clé offline
+- [Groq](https://groq.com/) pour l'inférence IA ultra-rapide et gratuite
+- [Supabase](https://supabase.com/) pour le backend communautaire gratuit
+- [OpenStreetMap](https://www.openstreetmap.org/) pour les données cartographiques
+- [flutter_map](https://pub.dev/packages/flutter_map) pour le widget de carte Flutter
+
+---
+
+*Construit avec ❄️ par des randonneurs à ski, pour des randonneurs à ski.*
