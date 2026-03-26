@@ -1,0 +1,25 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+*.g.dart
+
+# Android
+android/.gradle/
+android/local.properties
+android/key.properties
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+
+# Assets sensibles
+assets/*.ppn
+assets/*.pv
+
+# CRITIQUE — clés API à ne jamais commiter
+lib/services/ai_service.dart
+lib/services/transcription_service.dart
+lib/services/supabase_service.dart
+lib/services/wake_word_service.dart
